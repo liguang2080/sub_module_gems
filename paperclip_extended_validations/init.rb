@@ -1,1 +1,1 @@
-require "extended_validations"
+require File.dirname(__FILE__) + '/lib/extended_validations'
