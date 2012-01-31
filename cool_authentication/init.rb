@@ -1,0 +1,1 @@
+require 'cool_authentication'

@@ -1,0 +1,1 @@
+require "resque_async_helper"
