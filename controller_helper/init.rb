@@ -1,4 +1,4 @@
-if defined? ActionController
+if defined? Rails
 
   require File.dirname(__FILE__) + '/lib/ajax_redirect_helper'
   ActionController::Base.send(:include, AjaxRedirectHelper)
