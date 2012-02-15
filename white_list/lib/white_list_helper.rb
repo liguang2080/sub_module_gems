@@ -1,3 +1,4 @@
+require "set"
 module WhiteListHelper
   extend self
   PROTOCOL_ATTRIBUTES = Set.new %w(src href)
