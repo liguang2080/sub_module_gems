@@ -1,2 +1,5 @@
 require File.dirname(__FILE__) + '/lib/white_list_helper'
-ActionView::Base.send :include, WhiteListHelper
+
+if defined? Rails
+  ActionView::Base.send :include, WhiteListHelper
+end
