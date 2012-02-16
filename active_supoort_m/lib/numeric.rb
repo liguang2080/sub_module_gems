@@ -29,14 +29,22 @@ class Numeric
 
   def to_local_week_day(padding = "周")
     case self.to_i
-    when 0:  "#{padding}天"
-    when 1:  "#{padding}一"
-    when 2:  "#{padding}二"
-    when 3:  "#{padding}三"
-    when 4:  "#{padding}四"
-    when 5:  "#{padding}五"
-    when 6:  "#{padding}六"
-    else ""
+    when 0
+      "#{padding}天"
+    when 1
+      "#{padding}一"
+    when 2
+      "#{padding}二"
+    when 3
+      "#{padding}三"
+    when 4
+      "#{padding}四"
+    when 5
+      "#{padding}五"
+    when 6
+      "#{padding}六"
+    else
+      ""
     end
   end
 
