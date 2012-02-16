@@ -1,1 +1,0 @@
-require File.dirname(__FILE__) + '/lib/resque_async_helper' if defined? Resque
