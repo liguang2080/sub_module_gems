@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 可以让类的类方法使用delay的形式
 # TestTask.delay(:google, "sina")
 # 或者是

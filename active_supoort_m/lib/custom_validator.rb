@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 def should_be_have(obj)
   obj.present?
 end

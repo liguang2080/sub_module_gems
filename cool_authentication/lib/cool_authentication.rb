@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ActionController::Base
   helper_method :current_user, :logged_in?
 

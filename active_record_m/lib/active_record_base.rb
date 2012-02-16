@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ActiveRecord::Base
 
   class << self

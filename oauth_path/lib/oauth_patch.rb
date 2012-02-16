@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module OAuth::Client
   class Helper
     def oauth_parameters

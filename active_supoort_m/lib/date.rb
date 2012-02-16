@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Date
   def last_week
     self - 7

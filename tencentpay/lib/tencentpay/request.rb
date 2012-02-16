@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tencentpay
   class Request
     GATEWAY_URL = "http://service.tenpay.com/cgi-bin/v3.0/payservice.cgi"

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 HOLIDAY_DATE = {
   2009 =>  [
     [1,1],[1,2],

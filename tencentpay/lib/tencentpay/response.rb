@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tencentpay
   class Response
     attr_reader :sp_billno, :total_fee, :attach

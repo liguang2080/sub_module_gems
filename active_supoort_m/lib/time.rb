@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Time
   #used for Timezone insensitive comparisons
   def === t

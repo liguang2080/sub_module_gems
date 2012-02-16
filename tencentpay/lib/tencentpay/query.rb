@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tencentpay
   class Query
     # GATEWAY_URL = "http://mch.tenpay.com/cgi-bin/cfbi_query_order_v3.cgi"

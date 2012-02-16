@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module AjaxRedirectHelper
   def ajax_redirect_to(path)
     render :js => "$.utils.redirect_to('#{path}')"

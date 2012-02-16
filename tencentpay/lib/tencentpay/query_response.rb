@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tencentpay
   class QueryResponse  # 
     #   def initialize(response)

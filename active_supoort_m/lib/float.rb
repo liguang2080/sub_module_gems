@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Fixnum
   def roundf(places)
     temp = self.to_s.length
