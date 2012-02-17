@@ -5,7 +5,7 @@ class Hash
   def method_missing(method, *params)
     method_string = method.to_s
     if method_string.last == "="
-      self[method] = params.first
+      self[method.to_s[0...-1].to_sym] = params.first
     else
       self[method] || self[method_string]
     end
