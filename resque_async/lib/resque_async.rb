@@ -19,7 +19,11 @@ module ResqueWorkable
     end
     
     def self.delay_at(at_time, method, *args)
-      Resque.enqueue_at(at_time, self, method, *args)
+      if Rails.env == "production"
+        Resque.enqueue_at at_time, self, method, *args
+      else
+        Resque.enqueue self, method, *args
+      end
     end
   end
 end
