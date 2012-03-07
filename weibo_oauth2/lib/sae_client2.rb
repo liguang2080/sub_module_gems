@@ -37,4 +37,8 @@ class SaeClient2
   def user_timeline
     self.oauth.get("https://api.weibo.com/2/statuses/user_timeline.json", {:uid => @weibo_uid})
   end
+  
+  def new_direct_message(user_id, text)
+    self.oauth.post("http://api.t.sina.com.cn/direct_messages/new.json", { :user_id  => user_id, :text => text })
+  end
 end
