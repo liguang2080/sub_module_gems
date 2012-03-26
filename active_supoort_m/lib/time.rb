@@ -19,5 +19,11 @@ class Time
     self + 7.days
   end
 
+  def to_china
+    self.to_s(:china)
+  end
 
+  def to_chinas
+    self.to_s(:chinas)
+  end
 end
