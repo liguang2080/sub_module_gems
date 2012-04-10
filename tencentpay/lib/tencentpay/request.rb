@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 module Tencentpay
   class Request
-    GATEWAY_URL = "http://service.tenpay.com/cgi-bin/v3.0/payservice.cgi"
+    GATEWAY_URL = "https://www.tenpay.com/cgi-bin/v1.0/pay_gate.cgi"
 
     def initialize(sp_billno, total_fee, desc, return_url, spbill_create_ip = nil, attach = nil, bank_type = 0)
       @cmdno = 1
