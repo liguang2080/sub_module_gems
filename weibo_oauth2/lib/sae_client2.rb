@@ -43,6 +43,6 @@ class SaeClient2
   # end
   
   def app_send(uids, title, content)
-    self.oauth.post("https://api.weibo.com/notice/app/send.json", {:uids  => uids.join(","), :title => title, :content => content })
+    self.oauth.post("https://api.weibo.com/2/notice/app/send.json", {:uids  => uids.join(","), :title => title, :content => content })
   end
 end
