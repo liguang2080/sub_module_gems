@@ -2,7 +2,7 @@ require "base64"
 
 class OpenSina
   include HTTMultiParty
-  base_uri "https://api.t.sina.com.cn/"
+  base_uri "https://api.weibo.com"
   headers "User-Agent" => "Sae OAuth2 v0.1"
 end
 
