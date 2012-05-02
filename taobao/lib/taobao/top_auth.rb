@@ -2,6 +2,14 @@
 module Taobao
   class TopAuth
     extend Rack::Utils
+    
+    def self.container_url
+      if Rails.env.development?
+        "http://container.api.tbsandbox.com/container?appkey=#{Taobao::Config.key}"
+      else
+        "http://container.api.taobao.com/container?appkey=#{Taobao::Config.key}"
+      end
+    end
 
     def self.verifySign(key, param, session, secret, sign)
       md5_sign = Base64.encode64(Digest::MD5.digest(key + param + session + secret))
@@ -27,7 +35,7 @@ module Taobao
       {
         :visitor_id => params_hash["visitor_id"],
         :visitor_nick => params_hash["visitor_nick"],
-        :sesssion => session,
+        :session => session,
         :session_expire_in => Time.zone.now + params_hash["expires_in"].to_i,
         :refresh_token => params_hash["refresh_token"],
         :refresh_token_expire_in => Time.zone.now + params_hash["re_expires_in"].to_i
