@@ -27,8 +27,8 @@ class SaeOauth2
   #####################################################
   def parse_signed_request(signed_request)
     encoded_sig, payload = signed_request.split(".")
-    sig = base64_url_decode(encoded_sig)
-    data = Yajl::Parser.parse(base64_url_decode(payload))
+    sig = Base64.decode64_url(encoded_sig)
+    data = Yajl::Parser.parse(Base64.decode64_url(payload))
     return nil if data["algorithm"].upcase != "HMAC-SHA256"
 
     expected_sig = OpenSSL::HMAC.digest("sha256", self.client_secret, payload)
@@ -54,11 +54,4 @@ class SaeOauth2
       OpenSina.post(url, :query => parameters, :headers => {"Authorization" => "OAuth2 #{@access_token}"}).body
     end
   end
-
-  private
-    def base64_url_decode str
-      encoded_str = str.gsub('-','+').gsub('_','/')
-      encoded_str += '=' while !(encoded_str.size % 4).zero?
-      Base64.decode64(encoded_str)
-    end
 end
