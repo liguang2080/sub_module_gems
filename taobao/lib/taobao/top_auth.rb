@@ -5,9 +5,9 @@ module Taobao
     
     def self.container_url
       if Rails.env.development?
-        "http://container.api.tbsandbox.com/container?appkey=#{Taobao::Config.key}"
+        "http://container.api.tbsandbox.com/container?appkey=#{Taobao::Config.key}&encode=utf-8"
       else
-        "http://container.api.taobao.com/container?appkey=#{Taobao::Config.key}"
+        "http://container.api.taobao.com/container?appkey=#{Taobao::Config.key}&encode=utf-8"
       end
     end
 
