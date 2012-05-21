@@ -8,6 +8,14 @@ class Fixnum
   def to_see_zero?
     true
   end
+  
+  def to_chinese
+    if self >= 10000
+      (self / 10000).to_s + "万"
+    else
+      self
+    end
+  end
 end
 
 class Float
