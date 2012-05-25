@@ -43,7 +43,11 @@ class SaeClient2
   end
   
   def querymid(id, type = 1)
-    self.oauth.get("https://api.weibo.com/2/statuses/querymid.json", {:id => id, :type => "1"})
+    self.oauth.get("https://api.weibo.com/2/statuses/querymid.json", {:id => id, :type => type})
+  end
+  
+  def queryid(id, type = 1)
+    self.oauth.get("https://api.weibo.com/2/statuses/queryid.json", {:mid => id, :type => type, :isBase62 => 1})
   end
   
   def app_send(uids, title, content)
