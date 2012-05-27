@@ -28,7 +28,11 @@ class SaeOauth2
   def parse_signed_request(signed_request)
     encoded_sig, payload = signed_request.split(".")
     sig = Base64.decode64_url(encoded_sig)
-    data = Yajl::Parser.parse(Base64.decode64_url(payload))
+    begin
+      data = Yajl::Parser.parse(Base64.decode64_url(payload))
+    rescue Exception => e
+      return nil
+    end
     return nil if data["algorithm"].upcase != "HMAC-SHA256"
 
     expected_sig = OpenSSL::HMAC.digest("sha256", self.client_secret, payload)
