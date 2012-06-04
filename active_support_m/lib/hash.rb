@@ -7,7 +7,7 @@ class Hash
     if method_string.last == "="
       self[method.to_s[0...-1].to_sym] = params.first
     else
-      self[method] || self[method_string]
+      self[method].nil? ? self[method_string] : self[method]
     end
   end
   
