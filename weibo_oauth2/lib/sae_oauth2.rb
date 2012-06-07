@@ -29,7 +29,7 @@ class SaeOauth2
     encoded_sig, payload = signed_request.split(".")
     sig = Base64.decode64_url(encoded_sig)
     begin
-      data = Yajl::Parser.parse(Base64.decode64_url(payload))
+      data = JSON.parse(Base64.decode64_url(payload))
     rescue Exception => e
       return nil
     end
@@ -41,12 +41,12 @@ class SaeOauth2
 
   def get(url, parameters = {})
     response = self.oauth_request(url, 'GET', parameters)
-    Yajl::Parser.parse(response)
+    JSON.parse(response)
   end
 
   def post(url, parameters = {})
     response = self.oauth_request(url, 'POST', parameters)
-    Yajl::Parser.parse(response)
+    JSON.parse(response)
   end
 
   def oauth_request(url, method, parameters)
