@@ -2,23 +2,13 @@
 module Taobao
   class TopAuth
     extend Rack::Utils
-    
+
     def self.container_url
       if Rails.env.development?
         "http://container.api.tbsandbox.com/container?appkey=#{Taobao::Config.key}&encode=utf-8"
       else
         "http://container.api.taobao.com/container?appkey=#{Taobao::Config.key}&encode=utf-8"
       end
-    end
-
-    def self.verifySign(key, param, session, secret, sign)
-      md5_sign = Base64.encode64(Digest::MD5.digest(key + param + session + secret))
-      md5_sign.strip == sign
-    end
-
-    def self.verifyTimeStamp(params_hash)
-      ts = Time.zone.at(params_hash["ts"].to_i / 1000)
-      ((Time.zone.now + 5.minutes) > ts) && ((Time.zone.now - 5.minutes) < ts)
     end
 
     def self.parseTopResponse(key, param, session, secret, sign)
@@ -41,5 +31,17 @@ module Taobao
         :refresh_token_expire_in => Time.zone.now + params_hash["re_expires_in"].to_i
       }
     end
+
+    private
+    def self.verifySign(key, param, session, secret, sign)
+      md5_sign = Base64.encode64(Digest::MD5.digest(key + param + session + secret))
+      md5_sign.strip == sign
+    end
+
+    def self.verifyTimeStamp(params_hash)
+      ts = Time.zone.at(params_hash["ts"].to_i / 1000)
+      ((Time.zone.now + 5.minutes) > ts) && ((Time.zone.now - 5.minutes) < ts)
+    end
+
   end
 end
